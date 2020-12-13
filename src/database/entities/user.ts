@@ -1,10 +1,17 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from "typeorm";
+import { MinLength, MaxLength } from "class-validator";
 
 @Entity()
-export class User {
-  @PrimaryGeneratedColumn()
-  id: number;
+export class User extends BaseEntity {
+    @PrimaryGeneratedColumn()
+    id: number;
 
-  @Column()
-  name: string;
+    @Column()
+    @MinLength(3, {
+        message: "Name is too short",
+    })
+    @MaxLength(50, {
+        message: "Name is too long",
+    })
+    name: string;
 }

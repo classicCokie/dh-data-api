@@ -1,18 +1,16 @@
 import Router from "koa-router";
+import { createUserInDatabase, deleteUserInDatabase } from "../services/user";
 
 const createUser = (router: Router): void => {
-    console.log("Creates a user");
-
-    router.get("/user/create", async (ctx) => {
-        ctx.body = "Created User";
+    router.post("/user/create", async (ctx) => {
+        const newUser = await createUserInDatabase(ctx);
+        ctx.body = JSON.stringify(newUser);
     });
 };
 
 const deleteUser = (router: Router): void => {
-    console.log("Deletes a user");
-
     router.delete("/user/delete", async (ctx) => {
-        ctx.body = "Deleted User";
+        ctx.body = await deleteUserInDatabase(ctx);
     });
 };
 

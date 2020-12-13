@@ -7,8 +7,7 @@ import applyRoutes from "./routes";
 connectToDatabase();
 
 const app = new Koa();
-let router = new Router();
-applyRoutes(router);
+let router = applyRoutes(new Router());
 
 router.get("/hello-world", async (ctx: Koa.BaseContext) => {
     ctx.body = "Toll!";

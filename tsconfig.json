@@ -22,9 +22,14 @@
         "resolveJsonModule": true,
         "newLine": "lf",
         "forceConsistentCasingInFileNames": true,
-        "baseUrl": "."
+        "baseUrl": "src"
     },
-
+    "paths": {
+        "actions/*": ["app/actions/*"],
+        "selectors/*": ["app/selectors/*"],
+        "ui/*": ["app/ui/*"],
+        "logger": ["util/logger"]
+    },
     "exclude": ["node_modules"],
     "include": ["./src/**/*.tsx", "./src/**/*.ts"]
 }

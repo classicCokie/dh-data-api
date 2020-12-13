@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import { createConnection } from "typeorm";
-import Entities from "./entities";
+import allEntities from "./entities";
 
 export default () => {
     createConnection({
@@ -10,7 +10,7 @@ export default () => {
         username: "dave",
         password: "kennIck123!",
         database: "test",
-        entities: Entities,
+        entities: allEntities,
         synchronize: true,
         logging: false,
     })
