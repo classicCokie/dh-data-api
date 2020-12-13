@@ -5,8 +5,8 @@ import BodyParser from "koa-bodyparser";
 const app = new Koa();
 let router = new Router();
 
-router.get("/hello-world", async (ctx, next) => {
-  ctx.body = "Toll!";
+router.get("/hello-world", async (ctx: Koa.BaseContext) => {
+    ctx.body = "Toll!";
 });
 
 app.use(BodyParser()).use(router.routes()).use(router.allowedMethods());
