@@ -1,3 +1,4 @@
 import { User } from "./user";
+import { LocationUpdate } from "./locationUpdate";
 
-export default [User];
+export default [User, LocationUpdate];

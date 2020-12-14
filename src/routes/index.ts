@@ -1,7 +1,8 @@
 import Router from "koa-router";
 import allUserRoutes from "./user";
+import allLocationUpdateRoutes from "./locationUpdate";
 
-const allRoutes = [...allUserRoutes];
+const allRoutes = [...allUserRoutes, ...allLocationUpdateRoutes];
 
 const applyRoutes = (router: Router): Router => {
     allRoutes.forEach((route) => route(router));
