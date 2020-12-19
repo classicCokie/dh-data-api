@@ -20,5 +20,6 @@ app.on("error", (err) => {
 
 app.use(BodyParser()).use(router.routes()).use(router.allowedMethods());
 
-console.log("Server is listenening on 3000");
-app.listen(3000);
+// app.listen(3000);
+
+export default app;

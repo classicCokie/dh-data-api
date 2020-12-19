@@ -14,7 +14,7 @@ export default () => {
         synchronize: true,
         logging: false,
     })
-        .then((connection) => {
+        .then(() => {
             // here you can start to work with your entities
             console.log("Acctually Fucking Connected");
         })
