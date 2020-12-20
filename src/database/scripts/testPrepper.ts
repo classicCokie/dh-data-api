@@ -18,9 +18,12 @@ export class TestPrepper {
 
         const userToGet = await this.insertUser("Martin");
 
+        const userToUpdate = await this.insertUser("Ingo");
+
         return {
             userToDelete,
             userToGet,
+            userToUpdate,
             addedUser: undefined,
         };
     }

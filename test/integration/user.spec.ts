@@ -128,6 +128,32 @@ describe("User Integration Test Suite", function () {
             });
     });
 
+    // =========== Update Tests ==========
+    it("It should should Update User", function (done) {
+        chai.request(server)
+            .put("/user")
+            .send({
+                userId: globalData.userToUpdate.id,
+                name: "Leon",
+            })
+            .end(function (_err, res) {
+                expect(res).to.have.status(200);
+                expect(res.body).to.have.property("name");
+                expect(res.body).to.have.property("id");
+                chai.request(server)
+                    .get("/user")
+                    .send({
+                        userId: globalData.userToUpdate.id,
+                    })
+                    .end(function (_err, res) {
+                        expect(res).to.have.status(200);
+                        expect(res.body.name).to.equal("Leon");
+                        expect(res.body).to.have.property("id");
+                        done();
+                    });
+            });
+    });
+
     after(async () => {
         try {
             await testPrepper.cleanUpAfterTest();
