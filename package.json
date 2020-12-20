@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "watch": "tsc -w",
-        "dev": "nodemon dist/index.js",
+        "dev": "nodemon --watch 'src/**' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'ts-node --project tsconfig.json src/index.ts'",
         "start:dev": "concurrently --kill-others \"npm run watch\" \"npm run dev\"",
         "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
         "test:int": " mocha --require  ts-node/register --extensions ts test/integration/**/*.spec.ts"
@@ -38,6 +38,7 @@
         "eslint": "^7.15.0",
         "eslint-config-prettier": "^7.0.0",
         "eslint-plugin-prettier": "^3.2.0",
+        "koa2-swagger-ui": "^5.0.5",
         "mocha": "^8.2.1",
         "nodemon": "^2.0.6",
         "prettier": "^2.2.1",
