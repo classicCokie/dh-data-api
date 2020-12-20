@@ -21,6 +21,11 @@
         "url": "https://github.com/classicCokie/dh-data-api/issues"
     },
     "homepage": "https://github.com/classicCokie/dh-data-api#readme",
+    "husky": {
+        "hooks": {
+            "pre-push": "npm run test"
+        }
+    },
     "devDependencies": {
         "@types/chai": "^4.2.14",
         "@types/chai-http": "^4.2.0",
@@ -38,6 +43,7 @@
         "eslint": "^7.15.0",
         "eslint-config-prettier": "^7.0.0",
         "eslint-plugin-prettier": "^3.2.0",
+        "husky": "^4.3.6",
         "koa2-swagger-ui": "^5.0.5",
         "mocha": "^8.2.1",
         "nodemon": "^2.0.6",
