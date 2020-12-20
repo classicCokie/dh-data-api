@@ -13,7 +13,7 @@ chai.use(chaiHttp);
 describe("User Integration Test Suite", function () {
     it("Should Error on Trying to Register User with no data", function (done) {
         chai.request(server)
-            .post("/user/create")
+            .post("/healthcheck")
             .send({})
             .end(function (err, res) {
                 expect(res).to.have.status(200);
