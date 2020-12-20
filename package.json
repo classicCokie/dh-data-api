@@ -8,7 +8,7 @@
         "dev": "nodemon --watch 'src/**' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'ts-node --project tsconfig.json src/index.ts'",
         "start:dev": "concurrently --kill-others \"npm run watch\" \"npm run dev\"",
         "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
-        "test:int": " mocha --require  ts-node/register --extensions ts test/integration/**/*.spec.ts"
+        "test": " mocha --require  ts-node/register --extensions ts test/integration/**/*.spec.ts"
     },
     "repository": {
         "type": "git",
