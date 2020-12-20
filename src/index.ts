@@ -27,8 +27,6 @@ app.on("error", (err) => {
     console.error("server error", err);
 });
 
-console.log(process.cwd());
-
 app.use(BodyParser()).use(router.routes()).use(router.allowedMethods());
 
 app.listen(3000);
