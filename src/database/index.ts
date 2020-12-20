@@ -1,8 +1,8 @@
 import "reflect-metadata";
-import { createConnection } from "typeorm";
+import { Connection, createConnection } from "typeorm";
 import allEntities from "./entities";
 
-export default () => {
+const createDbConnection = (): Promise<Connection> =>
     createConnection({
         type: "mysql",
         host: "localhost",
@@ -13,10 +13,6 @@ export default () => {
         entities: allEntities,
         synchronize: true,
         logging: false,
-    })
-        .then(() => {
-            // here you can start to work with your entities
-            console.log("Acctually Fucking Connected");
-        })
-        .catch((error) => console.log(error));
-};
+    });
+
+export default createDbConnection;

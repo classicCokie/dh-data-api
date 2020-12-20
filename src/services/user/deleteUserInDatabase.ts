@@ -10,7 +10,7 @@ export const deleteUserInDatabase = async (ctx: DefaultContext) => {
     const selectedUser = await User.findOne({ id: ctx.request.body.userId });
 
     if (!selectedUser) {
-        ctx.throw(400, "No User found!");
+        ctx.throw(404, "No User found!");
         return;
     }
 

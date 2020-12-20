@@ -3,22 +3,30 @@ import { validate } from "class-validator";
 import { DefaultContext } from "koa";
 import { createErrorMessage } from "../../helpers";
 
-export const createUserInDatabase = async (
-    ctx: DefaultContext,
-): Promise<User | undefined> => {
-    const user = new User();
+export const updateUserInDatabase = async (ctx: DefaultContext) => {
+    const { userId } = ctx.request.body;
+
+    if (!userId) {
+        ctx.throw(500, "No userId provided");
+        return;
+    }
+
+    const user = await User.findOne({ id: userId });
+
+    if (!user) {
+        ctx.throw(404, "User not Found");
+        return;
+    }
 
     user.name = ctx.request.body.name;
 
     const errors = await validate(user);
-
     if (errors.length > 0) {
         const errorMessage = createErrorMessage(errors);
         ctx.throw(400, errorMessage);
-        return;
+    } else {
+        await user.save();
     }
 
-    const savedUser = await user.save();
-
-    return savedUser;
+    return user;
 };
