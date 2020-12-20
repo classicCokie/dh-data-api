@@ -20,8 +20,6 @@ router.get(
     koaSwagger({ routePrefix: false, swaggerOptions: { spec } }),
 );
 
-koaSwagger;
-
 // Handle errors
 app.on("error", (err) => {
     console.error("server error", err);
